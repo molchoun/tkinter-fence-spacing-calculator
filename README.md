@@ -6,8 +6,8 @@ panel, and calculates the number of panels and the spacing between each post.
 
 
 ***GUI windows in normal state and when error is thrown.***
-![GUI window](screenshot_normal.png "normal")
-![GUI window error](screenshot_error.png "error")
+![GUI window](screenshot_normal.png)
+![GUI window error](screenshot_error.png)
 
 ## Credits
 I would like to thank and give credit and to the original [author](https://github.com/rdbende) of the 
