@@ -12,5 +12,5 @@ panel, and calculates the number of panels and the spacing between each post.
 
 
 ## Credits
-I would like to thank and give credit and to the original [author](https://github.com/rdbende) of the 
+I would like to thank and give credit to the original [author](https://github.com/rdbende) of the 
 [ttk theme](https://github.com/rdbende/Forest-ttk-theme) that I have used in this project.
