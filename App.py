@@ -109,26 +109,26 @@ class App(tk.Tk):
             u_width = float(self.unit_width.get())
             space = (len1 - u_count * u_width) / (u_count + 1)
             self.spacing.set(round(space, 2))
-        except ValueError:
+        except (ValueError, ZeroDivisionError):
             pass
 
     def unit_counting(self):
         try:
-            len2 = float(self.uc_length.get())
-            u_width2 = float(self.uc_unit_width.get())
-            space2 = float(self.uc_spacing.get())
-            unit_cnt = (len2 + u_width2) / (space2 + u_width2) - 1
+            length = float(self.uc_length.get())
+            u_width = float(self.uc_unit_width.get())
+            space = float(self.uc_spacing.get())
+            unit_cnt = (length + u_width) / (space + u_width) - 1
             if (unit_cnt % 1) % 10 != 0:
                 up_cnt = ceil(unit_cnt)
                 down_cnt = floor(unit_cnt)
-                spacing_up = self.spacing_calc2(len2, up_cnt, u_width2)
-                spacing_down = self.spacing_calc2(len2, down_cnt, u_width2)
+                spacing_up = self.spacing_calc2(length, up_cnt, u_width)
+                spacing_down = self.spacing_calc2(length, down_cnt, u_width)
                 answer = ttk.Label(self.uc_frame, text="Կլոր թիվ չի ստացվում.\n արանքի չափը կլինի՝", font="Helvetica 10 italic").grid(column=0, row=3)
                 self.uc_unit_count.set(
                     f"{up_cnt} հատի դեպքում։ {round(spacing_up, 2)}\n{down_cnt} հատի դեպքում։ {round(spacing_down, 2)}")
             else:
                 self.uc_unit_count.set(int(unit_cnt))
-        except ValueError:
+        except (ValueError, ZeroDivisionError):
             pass
 
     @staticmethod
@@ -161,7 +161,7 @@ class App(tk.Tk):
         Show the error message if the data is not valid
         :return:
         """
-        self.show_message('Թույլատրվում են միայն իրական թվեր', 'red')
+        self.show_message('Թույլատրվում են միայն դրական իրական թվեր', 'red')
 
 if __name__ == '__main__':
     app = App()
